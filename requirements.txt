@@ -3,3 +3,6 @@ pyvirtualdisplay
 python-dotenv
 fastapi
 uvicorn
+requests
+jinja2
+python-multipart
