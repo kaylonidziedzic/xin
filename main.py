@@ -175,6 +175,15 @@ async def env_example():
     return PlainTextResponse(EXAMPLE_ENV)
 
 
+
+@app.post("/bypass", response_model=BypassResult)
+def bypass_endpoint(target_url: str = "https://nowsecure.in") -> BypassResult:
+    try:
+        return bypass_turnstile(target_url)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
 if __name__ == "__main__":
     import uvicorn
 
