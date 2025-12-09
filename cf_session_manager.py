@@ -40,7 +40,9 @@ class CFSessionManager:
         page = await browser_pool.acquire_page()
         try:
             result: BypassResult = await self.bypasser.try_bypass(page, url)
-            cookies = page.cookies(as_dict=True)
+            cookies_list = page.cookies()
+            cookies = {item['name']: item['value'] for item in cookies_list}
+            
             ua = page.user_agent
             session = CFSession(domain=domain, cookies=cookies, user_agent=ua)
             self.sessions[domain] = session
