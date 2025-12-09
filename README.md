@@ -115,7 +115,7 @@ curl -X POST http://localhost:8000/cf_proxy \
   -H "X-Token: your-secret-token" \
   -H "Content-Type: application/json" \
   -d '{
-    "url": "[https://nowsecure.nl](https://nowsecure.nl)",
+    "url": "https://nowsecure.nl",
     "method": "GET",
     "headers": {"User-Agent": "Custom-UA"}
   }'
@@ -131,7 +131,7 @@ curl -X POST http://localhost:8000/cf_proxy \
 curl -X POST http://localhost:8000/bypass_simple \
   -H "X-Token: your-secret-token" \
   -H "Content-Type: application/json" \
-  -d '{"target_url": "[https://nowsecure.nl](https://nowsecure.nl)"}'
+  -d '{"target_url": "https://nowsecure.nl"}'
 ```
 
 ### 3\. 浏览器直连 (`/browse`)
