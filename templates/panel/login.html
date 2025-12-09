@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>面板登录</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title mb-3">管理面板登录</h4>
+          {% if error %}
+          <div class="alert alert-danger">{{ error }}</div>
+          {% endif %}
+          <form method="post" action="/panel/login">
+            <div class="mb-3">
+              <label class="form-label">用户名</label>
+              <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">密码</label>
+              <input type="password" class="form-control" name="password" required>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">登录</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
