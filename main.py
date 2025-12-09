@@ -1,6 +1,7 @@
 import time
 from datetime import datetime
 from urllib.parse import urlparse
+from collections import deque
 
 from fastapi import Depends, FastAPI, Form, HTTPException, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
@@ -26,8 +27,8 @@ settings = get_settings()
 app = FastAPI(title="Cloudflare Proxy Service", version="2.0")
 templates = Jinja2Templates(directory="templates")
 startup_time = time.time()
-logs = []
-
+# logs = []
+logs = deque(maxlen=200)
 
 @app.on_event("startup")
 async def on_startup():
